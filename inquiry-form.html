@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniPilot - Inquiry Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section with Logo and Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- UniPilot Logo -->
+            <img src="/Users/baselto/Desktop/UniPilot/assets/20f8b1fa-ec1b-43e1-a26d-3920a2e4061a.png" alt="UniPilot Logo" class="logo">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>  <!-- Link to Services Section -->
+                <li><a href="#pricing">Pricing</a></li>  <!-- Link to Pricing Section -->
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>  <!-- Link to Inquiry Form -->
+            </ul>
+        </nav>
+    </header>
+
+<!-- Inquiry Form and Empty Left Section -->
+<section class="main-section">
+     <div class="left-section">
+    <!-- Add the image here -->
+    <img src="/Users/baselto/Desktop/UniPilot/assets/Germany.png" alt="Study in Germany" class="inquiry-image">
+    </div>
+
+    <div class="right-section">
+        <h2>Take the First Step towards Germany</h2>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b02abaea-8ef1-4c2a-ad71-40ce082c385c">
+
+            <!-- Name Field -->
+            <label for="name">Enter Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+
+            <!-- Email Field -->
+            <label for="email">Enter Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+            <!-- Mobile Number Field -->
+            <label for="mobile">Enter Mobile Number *</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
+
+            <!-- State Selection -->
+            <label for="state">Select State</label>
+            <select id="state" name="state" required onchange="updateCities()">
+            <option value="">Select State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Puducherry">Puducherry</option>
+        </select>
+
+
+            <!-- City Selection -->
+            <label for="city">Select City</label>
+            <select id="city" name="city" required>
+                <option value="">Select City</option>
+                <!-- Cities will be populated based on selected state -->
+            </select>
+            
+            <!-- Program of Interest Section -->
+<label for="program-of-interest">Preferred Course</label>
+<input type="text" id="program-of-interest" name="program-of-interest" placeholder="Enter your preferred course" required>
+
+            
+        
+
+
+            
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<script>
+        // Smooth Scroll Behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+        
+        // JavaScript for Dynamic City Selection based on selected state
+        function updateCities() {
+    var state = document.getElementById("state").value;
+    var citySelect = document.getElementById("city");
+    citySelect.innerHTML = '<option value="">Select City</option>';
+
+    var cities = {
+        "Andhra Pradesh": ["Hyderabad", "Vijayawada", "Visakhapatnam", "Tirupati", "Rajahmundry", "Kakinada", "Nellore"],
+        "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro", "Pasighat"],
+        "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon"],
+        "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Darbhanga"],
+        "Chhattisgarh": ["Raipur", "Bilaspur", "Korba", "Durg", "Raigarh"],
+        "Goa": ["Panaji", "Vasco da Gama", "Mapusa", "Margao"],
+        "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Nadiad", "Himmatnagar"],
+        "Haryana": ["Chandigarh", "Gurgaon", "Faridabad", "Ambala", "Hisar", "Karnal"],
+        "Himachal Pradesh": ["Shimla", "Manali", "Kullu", "Dharamshala", "Mandi"],
+        "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh"],
+        "Karnataka": ["Bangalore", "Mysore", "Mangalore", "Hubli", "Belgaum", "Bidar"],
+        "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kottayam", "Thrissur", "Palakkad"],
+        "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar"],
+        "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Aurangabad", "Nashik", "Solapur", "Kolhapur"],
+        "Manipur": ["Imphal", "Churachandpur", "Thoubal", "Kangpokpi"],
+        "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongpoh"],
+        "Mizoram": ["Aizawl", "Lunglei", "Champhai"],
+        "Nagaland": ["Kohima", "Dimapur", "Mokokchung"],
+        "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Puri"],
+        "Punjab": ["Chandigarh", "Amritsar", "Ludhiana", "Jalandhar", "Patiala", "Bathinda"],
+        "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota", "Ajmer", "Bikaner"],
+        "Sikkim": ["Gangtok", "Namchi", "Mangan", "Jorethang"],
+        "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem", "Tirunelveli"],
+        "Telangana": ["Hyderabad", "Warangal", "Khammam", "Karimnagar"],
+        "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Ambassa"],
+        "Uttar Pradesh": ["Lucknow", "Kanpur", "Agra", "Varanasi", "Noida", "Meerut", "Bareilly"],
+        "Uttarakhand": ["Dehradun", "Haridwar", "Nainital", "Roorkee", "Rishikesh"],
+        "West Bengal": ["Kolkata", "Siliguri", "Durgapur", "Asansol", "Kharagpur"],
+        "Andaman and Nicobar Islands": ["Port Blair", "Havelock", "Car Nicobar"],
+        "Chandigarh": ["Chandigarh"], // Union Territory
+        "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa"],
+        "Lakshadweep": ["Kavaratti", "Andrott", "Minicoy"], // Union Territory
+        "Delhi": ["Delhi"], // National Capital Territory
+        "Puducherry": ["Puducherry", "Auroville"] // Union Territory
+    };
+
+    // Check if the selected state has cities
+    if (cities[state]) {
+        cities[state].forEach(function(city) {
+            var option = document.createElement("option");
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+    }
+}
+
+    </script>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 UniPilot. All rights reserved.</p>
+    </footer>
